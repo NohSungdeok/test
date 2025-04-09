@@ -3,94 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LIXE Company</title>
+  <title>오늘 뭐 먹지?</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Noto Serif KR', serif;
-      background-color: #f8f8f8;
+      font-family: 'Apple SD Gothic Neo', sans-serif;
+      background-color: #f9f9f9;
       color: #333;
-      line-height: 1.8;
-    }
-    header, section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h1, h2 {
-      font-weight: 300;
       text-align: center;
+      padding: 50px 20px;
     }
-    .section-title {
-      font-size: 2rem;
+    h1 {
+      font-size: 3rem;
       margin-bottom: 30px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 10px;
     }
-    .contact {
-      text-align: center;
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #555;
+    }
+    #result {
       margin-top: 40px;
-    }
-    a {
-      color: #000;
-      text-decoration: underline;
+      font-size: 2rem;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
+  <h1>오늘 뭐 먹지?</h1>
+  <button onclick="pickMenu()">메뉴 추천 받기</button>
+  <div id="result"></div>
 
-  <header>
-    <h1>LIXE</h1>
-    <p style="text-align:center;">A Quiet UX Design Studio<br />조용하지만 명확한 감각을 설계합니다</p>
-  </header>
+  <script>
+    const menus = [
+      "김치찌개", "된장찌개", "비빔밥", "제육볶음", "돈까스",
+      "냉면", "칼국수", "떡볶이", "초밥", "쌀국수",
+      "햄버거", "샌드위치", "카레라이스"
+    ];
 
-  <section>
-    <h2 class="section-title">About LIXE</h2>
-    <p>
-      라익스는 UX Design 기반의 컨설팅 및 브랜드 전략을 제공하는 디자인 스튜디오입니다.
-      사용자의 행동과 감각을 기반으로, 브랜드 경험을 가장 정제된 방식으로 설계합니다.
-    </p>
-  </section>
-
-  <section>
-    <h2 class="section-title">What We Provide</h2>
-    <ul>
-      <li>UX 컨설팅 및 전략 수립</li>
-      <li>서비스 디자인 및 프로토타이핑</li>
-      <li>브랜드 경험 기획 및 디자인</li>
-      <li>디지털 제품 UI/UX 리디자인</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 class="section-title">Our Team</h2>
-    <p>
-      라익스 팀은 UX 전략가, 디자이너, 리서처 등으로 구성되어 있으며, 다양한 산업군의 프로젝트 경험을 보유하고 있습니다.
-    </p>
-  </section>
-
-  <section>
-    <h2 class="section-title">History</h2>
-    <p>
-      2020 – Studio LIXE 설립<br />
-      2021 – 국내외 UX 프로젝트 다수 수행<br />
-      2022 – 디자인 어워드 수상, B2B 프로젝트 확대<br />
-      2024 – 신규 브랜드 런칭 및 컨설팅 영역 확장
-    </p>
-  </section>
-
-  <section>
-    <h2 class="section-title">Office</h2>
-    <p>서울 성동구 성수동 소재, 감성과 기능이 조화된 공간에서 일합니다.</p>
-  </section>
-
-  <section>
-    <h2 class="section-title">Contact</h2>
-    <div class="contact">
-      <p>프로젝트 문의 및 협업 제안은 아래 이메일로 부탁드립니다.</p>
-      <p><a href="mailto:lixe@lixe.co.kr">lixe@lixe.co.kr</a></p>
-    </div>
-  </section>
-
+    function pickMenu() {
+      const randomIndex = Math.floor(Math.random() * menus.length);
+      const selected = menus[randomIndex];
+      document.getElementById('result').innerText = `오늘의 점심은 "${selected}" 어떠세요?`;
+    }
+  </script>
 </body>
 </html>
